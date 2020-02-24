@@ -7,7 +7,6 @@ namespace WorkshopLibrary
    public interface IRespository<T> where T:class, IEmployee, new()
     {
         IList<T> GetAll();
-        T GetNew();
         bool AddOrUpdate(T value);
         bool Delete(T valueToDelete);
     }

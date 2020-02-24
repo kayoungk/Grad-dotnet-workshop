@@ -11,6 +11,7 @@ namespace GenerateFakeUsers
         private List<string> _fakeDepartments = new List<string> { "Department One", "Department Two", "Deparment Three" };
         private List<string> _fakeJobTitles = new List<string> { "Job Title One", "Job Title Two", "Job Title Three", "Job Title Four" };
         private  Queue<T> _employees = new Queue<T>();
+        private Random _random = new Random();
 
         public Queue<T> Employees {
             get { return _employees; }
@@ -19,7 +20,7 @@ namespace GenerateFakeUsers
         {
             CreateFakeUsers(totalEmployees);
         }
-        public List<EmployeeNote> GenerateNotes(int numberOfNotes, int employeeId)
+        public List<EmployeeNote> GenerateNotes(int possibleNumberOfNotes, int employeeId)
         {
             Randomizer.Seed = new Random(2345);
             var startDate = new DateTime(2019, 1, 1);
@@ -30,9 +31,9 @@ namespace GenerateFakeUsers
                 .RuleFor(n => n.EmployeeId, f => employeeId)
                 .RuleFor(n => n.Created, f => f.Date.Between(startDate, endDate))
                 .RuleFor(n => n.NoteType, f => f.PickRandom(noteTypes))
-                .RuleFor(n => n.Text, f => string.Join(' ',f.Lorem.Words(10)));
+                .RuleFor(n => n.Text, f => f.Lorem.Sentence(5,10));
 
-            return faker.Generate(numberOfNotes);
+            return faker.Generate(_random.Next(0,possibleNumberOfNotes));
         }
         private void CreateFakeUsers(int totalEmployees)
         {
@@ -49,9 +50,6 @@ namespace GenerateFakeUsers
 
             var generatedUsers = faker.Generate(totalEmployees);
             _employees = new Queue<T>(generatedUsers);
-
         }
-
-
     }
 }
