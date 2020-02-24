@@ -34,7 +34,7 @@ namespace WorkshopLibraryTestFixture
         {
             var repository = new FakeEmployeeRepository(10);
 
-            var manager = repository.GetAll().FirstOrDefault(e => e is IManager) as IManager;
+            var manager = repository.GetAll().First(e => e is IManager) as IManager;
 
             Assert.NotEmpty(manager.Employees);
         }

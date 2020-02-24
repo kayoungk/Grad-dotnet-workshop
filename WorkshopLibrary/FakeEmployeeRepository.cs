@@ -6,7 +6,7 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-    public class FakeEmployeeRepository : IRespository<Employee>
+    public class FakeEmployeeRepository : IRepository<Employee>
     {
         private List<Employee> _fakeEmployees;
 
