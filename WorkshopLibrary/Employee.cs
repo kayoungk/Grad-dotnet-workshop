@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace WorkshopLibrary
 {
-    public class Person
+    public class Employee : IEmployee
     {
-        public const string unknownUser = "Unknown User";
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateTime? DoB { get; set; }
-        public int Age
-        {
-            get { return CurrentAge(); }
-        }
+        const string UnknownUser = "Unknown Employee";
+        public int Id { get ; set ; }
+        public string Department { get ; set ; }
+        public string JobTitle { get ; set ; }
+        public string FirstName { get ; set ; }
+        public string LastName { get ; set ; }
+        public DateTime? DoB { get ; set ; }
+
+        public int Age { get => CurrentAge(); }
+
         public string DisplayName()
         {
             if (string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrEmpty(LastName))
             {
-                return unknownUser;
+                return UnknownUser;
             }
 
             var firstName = FirstName ?? "*****";
@@ -38,7 +41,4 @@ namespace WorkshopLibrary
             return 0;
         }
     }
-
-   
-    
 }

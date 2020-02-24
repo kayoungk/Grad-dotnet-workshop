@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-    public class BigBrother
+    interface IManager
     {
+        List<IEmployee> Employees { get; }
+
     }
 }

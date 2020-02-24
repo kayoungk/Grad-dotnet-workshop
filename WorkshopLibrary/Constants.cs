@@ -4,7 +4,8 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-    public class BigBrother
+   public static class Constants
     {
+       
     }
 }

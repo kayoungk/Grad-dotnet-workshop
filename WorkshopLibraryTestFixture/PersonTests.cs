@@ -10,10 +10,35 @@ namespace WorkshopLibraryTestFixture
         public void GivenAValidFirstNameAndLastName_ReturnsExpectedDisplayName()
         {
             //Arrange
-
+            var firstName = "Bob";
+            var lastName = "Jones";
+            var expectedDisplayName = "Bob Jones";
+            var person = new Person { FirstName = firstName, LastName = lastName };
             //act
+            var actualDisplayName = person.DisplayName();
 
             //assert
+            Assert.Equal(expectedDisplayName, actualDisplayName);
+        }
+
+        [Fact]
+        public void GivenInvalidFirstNameAndLastName_ReturnsUnknownUser()
+        {
+            var person = new Person();
+            var expectedValue = "Unknown User";
+
+            Assert.Equal(expectedValue, person.DisplayName());
+
+        }
+
+        [Fact]
+        public void GivenInvalidFirstNameAndVaildLastName_ReturnsstarsFirstName()
+        {
+            var person = new Person { LastName = "Jones" };
+            var expectedValue = "***** Jones";
+
+            Assert.Equal(expectedValue, person.DisplayName());
+
         }
 
         [Fact]
