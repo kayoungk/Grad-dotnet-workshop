@@ -23,8 +23,7 @@ namespace WorkshopLibrary
                 return UnknownUser;
             }
 
-            var firstName = FirstName ?? "*****";
-            return $"{firstName} {LastName}";
+            return $"{FirstName ?? "*****"} {LastName ?? "*****"}";
         }
 
         private int CurrentAge()

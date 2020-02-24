@@ -4,9 +4,10 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-   public interface IManager
+    public interface IManager
     {
-        List<IEmployee> Employees { get; }
+        List<int> Employees { get; }
+        List<EmployeeNote> EmployeeNotes {get;}
 
     }
 }

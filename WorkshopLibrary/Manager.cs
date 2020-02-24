@@ -6,11 +6,14 @@ namespace WorkshopLibrary
 {
     public class Manager : Employee, IManager
     {
-        public List<IEmployee> Employees { get; }
+        public List<int> Employees { get; }
+
+        public List<EmployeeNote> EmployeeNotes { get; }
 
         public Manager()
         {
-            Employees = new List<IEmployee>();
+            Employees = new List<int>();
+            EmployeeNotes = new List<EmployeeNote>();
         }
     }
 }
