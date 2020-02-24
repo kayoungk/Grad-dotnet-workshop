@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-    class Manager : Employee, IManager
+    public class Manager : Employee, IManager
     {
         public List<IEmployee> Employees { get; }
 

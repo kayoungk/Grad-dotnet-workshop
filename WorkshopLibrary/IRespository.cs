@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-   public interface IRespository<T> where T:class, new()
+   public interface IRespository<T> where T:class, IEmployee, new()
     {
         IList<T> GetAll();
         T GetNew();

@@ -4,11 +4,11 @@ using System.Text;
 
 namespace WorkshopLibrary
 {
-    public class FakeRepository : IRespository<Employee>
+    public class FakeEmployeeRepository : IRespository<Employee>
     {
         private List<Employee> _fakeEmployees;
 
-        public FakeRepository()
+        public FakeEmployeeRepository(int numberOfEmployees)
         {
             _fakeEmployees = new List<Employee>();
             GenerateFakeEmployees();
@@ -35,7 +35,9 @@ namespace WorkshopLibrary
 
         private void GenerateFakeEmployees()
         {
-
+           
         }
+
+        
     }
 }
